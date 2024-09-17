@@ -38,6 +38,11 @@ function Form() {
   const [emoji, setEmoji] = useState("");
   const [geocodingError, setGeocodingError] = useState("");
 
+  const KEY = "";// Place the key here in the inverted commas
+  // Sign Up and get your unique KEY from the api provider
+  //Link: https://geocode.maps.co/
+  // use the reverse geocoding link for finding the location from the lat and lng of click on Map as explained in Map.jsx
+
   useEffect(
     function () {
       if (!lat && !lng) return;
@@ -48,7 +53,7 @@ function Form() {
           setGeocodingError("");
 
           const res = await fetch(
-            `https://geocode.maps.co/reverse?lat=${lat}&lon=${lng}&api_key=66e009c551f8f441251313bzyb10ba8`
+            `https://geocode.maps.co/reverse?lat=${lat}&lon=${lng}&api_key=${KEY}`
           );
           const data = await res.json();
           console.log(data);
